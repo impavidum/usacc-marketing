@@ -1,14 +1,41 @@
 import React from "react"
 import styled from "styled-components"
 
+import Img from "gatsby-image"
+import { PieChart } from 'react-minimal-pie-chart';
+
 import { Section, Container } from "../global"
 
 const Features = () => (
   <Section id="features">
     <StyledContainer>
-      <Subtitle>Features</Subtitle>
-      <SectionTitle>Smart money management</SectionTitle>
-      <FeaturesGrid>
+    <PieChart
+style={{width: 350, textAlign: 'center'}}
+startAngle={-90}
+  lineWidth={50}
+  radius={40}
+  data={[
+    { title: 'One', value: 65, color: '#036d38' },
+    { title: 'Two', value: 35, color: '#e8e8e8'},
+    
+
+  ]}
+/>
+    <ImageWrapper>
+            {/* <StyledImage fluid={data.file.childImageSharp.fluid} /> */}
+           
+
+
+
+            <br />
+          </ImageWrapper>
+      {/* <Subtitle>Who is Eligible</Subtitle> */}
+      <SectionTitle style={{color: '#14213d', opacity: .9}}>Healthcare Connect Fund</SectionTitle>
+      <p style={{color: '#14213d', opacity: .7}}>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+      <SectionTitle style={{color: '#14213d', opacity: .9}}>Telecommunications Program</SectionTitle>
+      <p style={{color: '#14213d', opacity: .7}}>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+      {/* <FeaturesGrid>
         <FeatureItem>
           <FeatureTitle>Notifications</FeatureTitle>
           <FeatureText>
@@ -44,7 +71,7 @@ const Features = () => (
             High interest and rewards for hitting your goals.
           </FeatureText>
         </FeatureItem>
-      </FeaturesGrid>
+      </FeaturesGrid> */}
     </StyledContainer>
   </Section>
 )
@@ -56,7 +83,7 @@ const StyledContainer = styled(Container)``
 const SectionTitle = styled.h3`
   color: ${props => props.theme.color.primary};
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin: 0 auto 40px;
   text-align: center;
 `
@@ -66,7 +93,7 @@ const Subtitle = styled.h5`
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
   margin-bottom: 12px;
-  text-align: center;
+  text-align: left;
 `
 
 const FeaturesGrid = styled.div`
@@ -84,8 +111,8 @@ const FeaturesGrid = styled.div`
 
 const FeatureItem = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   flex-direction: column;
 `
 
@@ -97,5 +124,15 @@ const FeatureTitle = styled.h4`
 `
 
 const FeatureText = styled.p`
-  text-align: center;
+  text-align: left;
+`
+
+
+const ImageWrapper = styled.div`
+  justify-self: end;
+  align-self: center;
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    justify-self: center;
+  }
 `

@@ -1,11 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 
+import { useForm, ValidationError } from '@formspree/react';
+
 import { Container, Section } from "../global"
 
 const GetStarted = () => (
   <StyledSection>
     <GetStartedContainer>
+    <ContactForm />
       <GetStartedTitle>Be the first to get the beta</GetStartedTitle>
       <TryItButton>Get early access</TryItButton>
       <Subtitle>No credit card required.</Subtitle>
@@ -14,6 +17,42 @@ const GetStarted = () => (
 )
 
 export default GetStarted
+
+function ContactForm() {
+  const [state, handleSubmit] = useForm("xayadwqg");
+  if (state.succeeded) {
+      return <p>Thanks for joining!</p>;
+  }
+  return (
+      <form onSubmit={handleSubmit}>
+      <label htmlFor="email">
+        Email Address
+      </label>
+      <input
+        id="email"
+        type="email" 
+        name="email"
+      />
+      <ValidationError 
+        prefix="Email" 
+        field="email"
+        errors={state.errors}
+      />
+      <textarea
+        id="message"
+        name="message"
+      />
+      <ValidationError 
+        prefix="Message" 
+        field="message"
+        errors={state.errors}
+      />
+      <button type="submit" disabled={state.submitting}>
+        Submit
+      </button>
+    </form>
+  );
+}
 
 const StyledSection = styled(Section)`
   background-color: ${props => props.theme.color.background.light};

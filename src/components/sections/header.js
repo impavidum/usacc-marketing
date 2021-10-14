@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
-
+import { PieChart } from 'react-minimal-pie-chart';
 import { Container } from "../global"
 
 const Header = () => {
@@ -25,32 +25,34 @@ const Header = () => {
   return (
     <HeaderWrapper id="top">
       <Container>
-        <Flex>
+        {/* <Flex> */}
           <HeaderTextGroup>
-            <Subtitle>Personal Finance</Subtitle>
-            <h1>
-              All your money,
-              <br />
-              one account
-            </h1>
-            <h2>
-              We're building next generation personal finance tools. Sign up to
-              get early access.
+          <h2 style={{color: '#14213d', opacity: .7,  cursor: 'pointer', marginBottom: 15, fontSize: 20}}>
+              <Link style={{textDecoration: 'underline'}}> </Link> Through the Healthcare Connect Fund
             </h2>
-            <HeaderForm onSubmit={handleSubmit}>
+            {/* <Subtitle style={{color: '#14213d'}}>Through The Universal Service Fund</Subtitle> */}
+            <h1 style={{margin: 0, color: '#036d38', opacity: .95}}>
+              Qualifying Hospitals 
+            </h1>
+            <h1 style={{margin: 0, color: '#036d38',marginBottom: 5}}>
+              Get A 65% Discount 
+            </h1>
+            <h1 style={{ color: '#14213d', opacity: 1, margin: 0}}>On All Internet Services</h1>
+            <h1 style={{ color: '#14213d', opacity: .95, margin: 0}}>And Hardware Upgrades.</h1>
+            <h2 style={{color: '#036d38', opacity: .95,  cursor: 'pointer', fontSize: 20}}>
+              <Link style={{textDecoration: 'underline'}}> </Link> Calculate your savings
+            </h2>
+            {/* <HeaderForm onSubmit={handleSubmit}>
               <HeaderInput placeholder="Your email" />
               <HeaderButton>Early access</HeaderButton>
             </HeaderForm>
             <FormSubtitle>
               Already have a beta account?{" "}
               <FormSubtitleLink to="/">Sign in</FormSubtitleLink>
-            </FormSubtitle>
+            </FormSubtitle> */}
           </HeaderTextGroup>
-          <ImageWrapper>
-            <StyledImage fluid={data.file.childImageSharp.fluid} />
-            <br />
-          </ImageWrapper>
-        </Flex>
+          
+        {/* </Flex> */}
       </Container>
     </HeaderWrapper>
   )
@@ -60,7 +62,7 @@ export default Header
 
 const HeaderWrapper = styled.header`
   background-color: #f8f8f8;
-  padding: 160px 0 80px 0;
+  padding: 160px 0 160px 0;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   @media (max-width: ${props => props.theme.screen.md}) {

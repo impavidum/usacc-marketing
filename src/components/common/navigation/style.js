@@ -2,6 +2,13 @@ import styled from "styled-components"
 
 import { Container } from "../../global"
 
+import Logo from "../../../images/logo.inline.svg"
+
+export const StyledLogo = styled(Logo)`
+  height: 33px;
+  width: auto;
+`
+
 export const Nav = styled.nav`
   padding: ${props => (props.scrolled ? `16px 0` : `24px 0`)};
   position: fixed;
@@ -93,8 +100,8 @@ export const ActionsContainer = styled.div`
   button {
     font-family: ${props => props.theme.font.normal};
     ${props => props.theme.font_size.xsmall};
-    color: white;
-    background: #098b8c;
+    color: #071435;
+    background: white;
     border-radius: 4px;
     padding: 10px 16px;
     text-transform: uppercase;

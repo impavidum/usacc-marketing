@@ -5,6 +5,7 @@ import { Menu, X } from "react-feather"
 
 import { Container } from "../../global"
 import {
+  StyledLogo,
   Nav,
   NavItem,
   Brand,
@@ -15,7 +16,9 @@ import {
   ActionsContainer,
 } from "./style"
 
-const NAV_ITEMS = ["Features", "Product", "Pricing", ""]
+
+
+const NAV_ITEMS = ["Learn More"]
 
 export default class Navigation extends Component {
   state = {
@@ -77,7 +80,7 @@ export default class Navigation extends Component {
           <Brand>
             <Scrollspy offset={-64} item={["top"]} currentClassName="active">
               <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                Finance
+              <StyledLogo />
               </AnchorLink>
             </Scrollspy>
           </Brand>
@@ -95,9 +98,9 @@ export default class Navigation extends Component {
           </Mobile>
 
           <Mobile hide>{this.getNavList({})}</Mobile>
-          <ActionsContainer>
-            <button>Sign up</button>
-          </ActionsContainer>
+          {/* <ActionsContainer>
+            <button>Get Started</button>
+          </ActionsContainer> */}
         </StyledContainer>
         <Mobile>
           {mobileMenuOpen && (
